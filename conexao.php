@@ -8,5 +8,4 @@
       echo "Não foi possível conectar no banco de dados: ";
       exit;
    }
-   return $conexao_bd
 ?>

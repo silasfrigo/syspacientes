@@ -1,9 +1,8 @@
 <?php
 
-   $con = require_once('conexao.php');
-   echo "Informações do host:" . mysqli_get_host_info($con);   
-   $tst = mysqli_close($con);  
-   echo $tst;
+   require_once('conexao.php');
+   echo "Informações do host:" . mysqli_get_host_info($conexao_bd);   
+   mysqli_close($conexao_bd);  
    $onload = "";
    $erro   = $_GET['erro'];
    if(strlen($erro) > 0){
