@@ -1,13 +1,12 @@
 <?php
    $conexao_bd = mysqli_connect(
-                  "localhost",
-                  "root",
-                  "123456",
-                  "syspacientes");
+      "localhost",
+      "silas",
+      "1234",
+      "syspacientes");
    if(!$conexao_bd){
       echo "Não foi possível conectar no banco de dados: ";
       exit;
    }
-   
-   //echo "conectou!";
+   return $conexao_bd
 ?>
