@@ -1,27 +1,16 @@
 <?php
-   //echo "boa noite!";
-   /*
-   $con = mysqli_connect(
-      "localhost",
-      "root",
-      "123456",
-      "syspacientes");
-   if(!$con){
-      echo "Error ".PHP_EOL;
-      exit;
-   }
-   echo "Conectou!!!";
-   echo "<br>";
-   echo "Informações do host: " . 
-      mysqli_get_host_info($con);
-   mysqli_close($con);  
-   */
+
+   $con = require_once('conexao.php');
+   echo "Informações do host:" . mysqli_get_host_info($con);   
+   $tst = mysqli_close($con);  
+   echo $tst;
    $onload = "";
    $erro   = $_GET['erro'];
    if(strlen($erro) > 0){
       $onload = "onload='alert(\"$erro\")'";
    }
  ?>
+
  <!DOCTYPE html>
  <html lang="pt-br">
  <head>
@@ -32,7 +21,7 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
+ 
     <link href="css/login.css" rel="stylesheet">
     <script type="text/javascript">
       function validaTela(){
@@ -49,7 +38,8 @@
       }
     </script>
  </head>
- <body class="text-center" <?php echo $onload; ?>>
+ <body <?php echo $onload; ?>>
+ <div class="text-center">
     <form class="form-signin"
           method="post"
           action="redirect.php"
@@ -64,7 +54,9 @@
       <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Senha" required>
       
       <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
-      <p class="mt-5 mb-3 text-muted">Nome de vocês &copy; 2017-2018</p>
+      <p class="mt-5 mb-3 text-muted">Silas Frigo Libanio &copy; 2020</p>
     </form>
+   </div>
   </body>
  </html>
+ 
