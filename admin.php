@@ -10,7 +10,12 @@
    if($rows=mysqli_fetch_row($resp)){
       $nome_usuario = $rows[0];
    }
-   mysqli_close($conexao_bd);
+   
+
+
+   $onload = "";
+   $erro   = $_GET['erro'];
+   
 ?>
 
 <!doctype html>
@@ -63,13 +68,41 @@
     
     <div class="jumbotron">
       <?php
+        print_r($erro);
         echo "<h3>". $nome_usuario .   "</h3>";
       ?>
 
     
     
         <p>Bem vindo o seu login foi feito com sucesso! </p>
-        
+        <table class='table table-striped table-dark' style='width:100%'>
+    
+      <thead>
+            <tr>
+              <th scope='col'>Nome</th>
+              <th scope='col'>Editar Cadastro</th>
+              
+            </tr>
+          </thead>
+  
+      <?php
+         
+         $sql = "SELECT id, nome FROM usuarios ORDER BY Nome";
+         $resp = mysqli_query($conexao_bd, $sql);
+         while($rows = mysqli_fetch_row($resp)){
+            $idUsuario   = $rows[0];
+            $nomeUsuario = $rows[1];
+            echo "<tr>";
+            echo("<td style='width:49%' class='text-white bg-info'> $nomeUsuario </td>");
+            echo("<td style='width:51%'><a class='btn btn-lg btn-success' href='usuario.php?idUsuario=$idUsuario' role='button'>...</a></td>");
+            echo "</tr>";
+         } 
+         mysqli_close($conexao_bd);
+         echo "</table></div>";
+     ?> 
+     
+    
+    
     </div>
 
     </div> 
